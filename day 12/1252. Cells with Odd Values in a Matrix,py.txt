@@ -1,0 +1,16 @@
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        rdata = [0]*m
+        cdata = [0]*n
+
+        for tup in indices:
+            rdata[tup[0]] = rdata[tup[0]]+1
+            cdata[tup[1]] = cdata[tup[1]]+1
+
+        oddc=0
+        for rowp in range(m):
+            for colp in range(n):
+                val = rdata[rowp] + cdata[colp]
+                if val%2 != 0:
+                    oddc+=1
+        return oddc     
